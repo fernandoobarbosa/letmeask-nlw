@@ -1,6 +1,19 @@
+import { createContext } from 'react'
+import { BrowserRouter, Route } from 'react-router-dom'
+
+import { Home } from './pages/Home'
+import { NewRoom } from './pages/NewRoom'
+
+export const TestContext = createContext('')
+
 function App () {
   return (
-    <h1>Hello World</h1>
+    <BrowserRouter>
+      <TestContext.Provider value='teste'>
+        <Route path='/' exact component={Home} />
+        <Route exact path='/rooms/new' component={NewRoom} />
+      </TestContext.Provider>
+    </BrowserRouter>
   )
 }
 
